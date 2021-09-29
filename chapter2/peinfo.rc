@@ -1,0 +1,61 @@
+#include <resource.h>
+
+#define ICO_MAIN  1000
+#define DLG_MAIN  1000
+#define IDC_INFO  1001
+#define IDM_MAIN  2000
+#define IDM_OPEN  2001
+#define IDM_EXIT  2002
+
+#define IDM_1    4000
+#define IDM_2    4001
+#define IDM_3    4002
+#define IDM_4    4003
+
+
+ICO_MAIN  ICON  "main.ico"
+
+DLG_MAIN DIALOG 50,50,544,399
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "PEInfo"
+MENU IDM_MAIN
+FONT 9,"Consolas"
+BEGIN
+   CONTROL "",IDC_INFO,"RichEdit20A",196 | ES_WANTRETURN | WS_CHILD | ES_READONLY
+               | WS_VISIBLE |WS_BORDER | WS_VSCROLL | WS_TABSTOP,0,0,540,396
+END
+
+IDM_MAIN menu discardable
+BEGIN
+  POPUP "file(&F)"
+  BEGIN
+    menuitem "open(&O)...",IDM_OPEN
+    menuitem separator
+    menuitem "exit(&x)",IDM_EXIT
+  END
+  POPUP "edit(&E)"
+  BEGIN
+    menuitem separator
+  END
+
+  POPUP "format(&O)"
+  BEGIN
+    menuitem separator
+  END
+
+  POPUP "view(&V)"
+  BEGIN
+    menuitem "source",IDM_1
+    menuitem "opacity",IDM_2
+    menuitem separator
+    menuitem "size",IDM_3
+    menuitem "width",IDM_4
+  END
+
+  POPUP "help(&H)"
+  BEGIN
+    menuitem separator
+  END
+
+END
+ 

@@ -332,7 +332,7 @@ _ProcDlgMain proc uses ebx edi esi hWnd, wMsg, wParam, lParam
         .if  eax == IDM_EXIT
             invoke EndDialog, hWnd, NULL
         .elseif eax == IDM_OPEN
-            call _openFile
+            invoke CreateThread, NULL, 0, addr _openFile, offset hWinMain, 0, NULL
         .elseif eax == IDM_1
         .elseif eax == IDM_2
         .elseif eax == IDM_3
